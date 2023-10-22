@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // Add additional columns as needed
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {delete}',
+                'template' => '{update} {delete}',
             ],
         ],
     ]); ?>

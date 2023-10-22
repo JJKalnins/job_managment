@@ -38,7 +38,7 @@ class ActiveJobsController extends Controller
 
             foreach ($employees as $key => $employee) {
                 $__construction_sites = Construction::find()
-                    ->where(['>=', 'required_access_level', $employee->access_level])
+                    ->where(['<=', 'required_access_level', $employee->access_level])
                     ->all();
 
                 $sites = [];

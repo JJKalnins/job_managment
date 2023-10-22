@@ -19,7 +19,7 @@ class ConstructionController extends Controller
             if ($model->load(Yii::$app->request->post()) && $model->validate()) {
                 // Data was successfully inserted, you can redirect or show a success message
                 if ($model->save()) {
-                    return $this->redirect(['index');
+                    return $this->redirect(['index']);
                 }
             }
 

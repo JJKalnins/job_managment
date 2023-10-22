@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php Pjax::end(); ?>
 </div>
-<button id="saveAllInformation" class="btn btn-primary">Save all this fancy data</button>
+<button id="saveAllInformation" class="btn btn-primary">Save all</button>
 <script>
     var work_items = <?= json_encode($work_items) ?>
 </script>

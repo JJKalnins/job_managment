@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Workitem;
 use app\models\WorkitemSearch;
+use app\models\Construction;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 
@@ -55,7 +56,7 @@ class WorkitemController extends Controller
         if (Yii::$app->user->can("view-workitem")) {
             $work_items = Workitem::find()->all();
             $searchModel = new WorkitemSearch();
-            
+
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [
@@ -82,7 +83,7 @@ class WorkitemController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Construction::findOne($id)) !== null) {
+        if (($model = Workitem::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
