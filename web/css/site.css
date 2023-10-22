@@ -86,3 +86,60 @@ a.desc:after {
 .form-group {
     margin-bottom: 1rem;
 }
+
+[job_status] {
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    position: relative;
+    width: 40%;
+    padding-top: 30px;
+}
+
+.specific_location {
+    display: flex;
+    width: 100%;
+    border: 1px solid;
+    margin-top: 4px;
+}
+
+.location_name {
+    width: 20%;
+    border-right: 1px solid;
+}
+
+.location_name>span {
+    padding: 7px 25px;
+    display: block;
+}
+
+[job_status]:after {
+    content: var(--text);
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 600;
+    opacity: 0.6;
+    padding-inline: 8px;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-bottom-left-radius: 10px;
+    background: var(--background-color);
+}
+
+.job_assign>span {
+    border: 2px solid #6263ff;
+    padding: 4px 8px;
+    display: inline-block;
+    border-radius: 20px;
+    cursor: grab;
+}
+
+[job_status=unassigned] {
+    --text: 'unassigned';
+    --background-color: pink;
+}
+
+[job_status=assigned] {
+    --text: 'assigned';
+    --background-color: greenyellow;
+}

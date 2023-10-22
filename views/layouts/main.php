@@ -39,9 +39,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            Yii::$app->user->can("view-employee") ? ['label' => 'Employees', 'url' => ['/employee/index']] : "",
+            Yii::$app->user->can("view-construction") ? ['label' => 'Construction Sites', 'url' => ['/construction/index']] : "",
+            Yii::$app->user->can("view-workitem") ? ['label' => 'Work Items', 'url' => ['/workitem/index']] : "",
+            [
+                'label' => 'Work Managment',
+                'items' => [
+                    Yii::$app->user->can("list-activejobs") ? ['label' => 'My Tasks', 'url' => ['/active-jobs/list']] : "",
+                    Yii::$app->user->can("manage-activejobs") ? ['label' => 'Task Manager', 'url' => ['/active-jobs/index']] : "",
+                    // Add more dropdown items as needed
+                ],
+            ],
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -71,7 +79,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
         <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
+            <div class="col-md-6 text-center text-md-start">&copy; Job Managment <?= date('Y') ?></div>
             <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
         </div>
     </div>

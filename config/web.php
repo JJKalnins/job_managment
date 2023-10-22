@@ -14,7 +14,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'OqdCF3ElukTn-aNTXS7iwD0vC4Ivf5K6',
+            'cookieValidationKey' => '-ZkXm0TgMwo51pk_4TaDb7q5z7JcH6rG',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -32,6 +32,10 @@ $config = [
             // send all mails to a file by default.
             'useFileTransport' => true,
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest'],
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -42,14 +46,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'pass'],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
